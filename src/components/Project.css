@@ -1,0 +1,40 @@
+.projcard {
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 60px;
+    font-weight: 500;
+    color: #1e3957;
+    border-right: 4px solid #000; /* This will be the blinking cursor */
+    animation: cursor 1s infinite step-end;
+    width: 400px;
+    margin: 0 auto; /* Center the element horizontally */
+}
+
+.row {
+    margin: 10px;
+}
+
+p {
+    margin-top: 20px;
+}
+
+.figmalink {
+    color: white;
+}
+
+.figmalink:hover {
+    color: rgb(238, 177, 116);
+    text-decoration: none;
+}
+
+@keyframes cursor{
+    0%, 100%{border-color: transparent;}
+    50%{border-color: #000;}
+  }

@@ -1,0 +1,56 @@
+.about-content {
+    padding: 50px;
+}
+
+.card {
+    background-color: rgb(55, 100, 173);
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-title {
+    font-size: 40px;
+    text-align: left;
+    color: rgb(234, 144, 59);
+}
+
+.card-text {
+    text-align: left;
+}
+
+.col {
+    margin-bottom: 40px;
+}
+
+.skill ul {
+    padding: 0px;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.item {
+    list-style-type: none;
+    margin: 10px 0px;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.item:hover {
+    background-color: white;
+    color: rgb(55, 100, 173);
+}
+
+.intro {
+    font-size: 18px;
+    line-height: 1.7;
+}

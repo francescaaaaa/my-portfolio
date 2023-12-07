@@ -1,38 +1,157 @@
+* {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  background-image: linear-gradient(rgb(106, 144, 204), rgb(255, 255, 255));
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  margin: 0;
+  padding: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.link {
+  text-decoration: none;
+  display: inline;
+  padding: 20px 30px;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.about-section {
+  /* height: 100vh; */
+  background-color: rgb(10, 37, 80);
 }
 
-@keyframes App-logo-spin {
-  from {
+/* .project-section { */
+  /* height: 100vh; */
+/* } */
+
+.work-section {
+  /* height: 100vh; */
+  background-color: rgb(116, 154, 180);
+}
+
+.top-btn-position {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.top-btn-style {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.548);
+  border-radius: 20px;
+}
+
+.top-btn-style:hover {
+  animation: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.426);
+}
+
+.imgcircle {
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  position: relative;
+  background: rgb(10, 37, 80);
+  overflow: hidden;
+  margin: auto;
+}
+
+.imgcircle::before {
+  content: '';
+  position: absolute;
+  inset: 0px 100px;
+  background: linear-gradient(rgb(30, 78, 155),rgb(74, 129, 249));
+  transition: 0.5s;
+  animation: animate 4s linear infinite;
+}
+
+.imgcircle:hover::before {
+  inset: -10px 0px;
+}
+
+.imgcircle::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: rgb(140, 172, 223);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  inset: 30px;
+  border: 6px solid rgb(10, 37, 80);
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.content img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding-top: 20px;
+}
+
+h3 {
+  color: rgb(47, 60, 178);
+}
+
+.socials-link {
+  text-decoration: none;
+  display: inline;
+  padding: 0px 20px;
+  cursor: pointer;
+  margin: auto;
+}
+
+a {
+  color: black;
+}
+
+@keyframes animate {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* styles for devices with a maximum screen width of 480px */
+  ul {
+    padding: 10px 0px;
+  }
+
+  .link {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .imgcircle {
+    height: 300px;
+    width: 300px;
   }
 }
