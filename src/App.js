@@ -1,7 +1,7 @@
 import './App.css';
 import About from './components/AboutMe';
 import Project from './components/Project';
-// import Work from './components/Work';
+import Work from './components/Work';
 import { useRef } from "react";
 import ScrollToTop from './components/ScrollToTop';
 import useTypingEffect from './components/typing-effect';
@@ -10,7 +10,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 function App() {
   const about = useRef(null);
   const project = useRef(null);
-  // const work = useRef(null);
+  const work = useRef(null);
   const name = useTypingEffect("Shinta Karolina Bek", 100);
   const bio = useTypingEffect("Aspiring Frontend Developer", 100);
 
@@ -28,7 +28,7 @@ function App() {
         <ul>
           <li onClick={()=>scrollToSection(about)} className="link">About Me</li>
           <li onClick={()=>scrollToSection(project)} className="link">Project Experience</li>
-          {/* <li onClick={()=>scrollToSection(work)} className="link">Work Experience</li> */}
+          <li onClick={()=>scrollToSection(work)} className="link">Work Experience</li>
         </ul>
         <div className='imgcircle'>
           <div className='content'>
@@ -51,9 +51,9 @@ function App() {
       <div ref={project} className="project-section">
         <Project/>
       </div>
-      {/* <div ref={work} className="work-section">
+      <div ref={work} className="work-section">
         <Work/>
-      </div> */}
+      </div>
     </div>
   );
 }

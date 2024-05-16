@@ -3,7 +3,7 @@ import useTypingEffect from './typing-effect';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FaFigma, FaVideo } from "react-icons/fa";
+import { FaFigma, FaVideo, FaGamepad } from "react-icons/fa";
 import { CiTrophy } from "react-icons/ci";
 
 function Project() {
@@ -16,8 +16,8 @@ function Project() {
           <h1>{header}</h1>
       </header>
       <body className='projcard'>
-        <Row>
-          <Col md={4}>
+        <Row className='mb-5'>
+          <Col md={4} sm={12}>
             <Card>
               <Card.Img variant="top" src={require('../ioc.png')} />
               <Card.Body>
@@ -37,7 +37,7 @@ function Project() {
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
+          <Col md={4} sm={12}>
             <Card>
               <Card.Img variant="top" src={require('../smuday.png')} />
               <Card.Body>
@@ -54,7 +54,7 @@ function Project() {
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
+          <Col md={4} sm={12}>
             <Card>
               <Card.Img variant="top" src={require('../projeck_img.png')} />
               <Card.Body>
@@ -66,6 +66,29 @@ function Project() {
                   <p>
                     <a href='https://youtu.be/e_4JG9KR7dc' className='figmalink'>
                       <FaVideo color='white'/> Demo
+                    </a>
+                  </p>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+        <Col md={4} sm={12}>
+            <Card>
+              <Card.Img variant="top" src={require('../memorygame.png')} />
+              <Card.Body>
+                <Card.Title>Memory Game</Card.Title>
+                <Card.Text>
+                  A web-based memory game using React JS. 
+                  The main aim of the game is for the player to successfully complete every round by identifying the green cards.
+                  <p>
+                    <a href='https://youtu.be/DO3FJfz7cbY' className='figmalink'>
+                      <FaVideo color='white'/> Demo
+                    </a>
+                    {' '} | {' '}
+                    <a href='https://memorygame4u.netlify.app/' className='figmalink'>
+                      <FaGamepad size={18} color='white'/> Try Me
                     </a>
                   </p>
                 </Card.Text>
