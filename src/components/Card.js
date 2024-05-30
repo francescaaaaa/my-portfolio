@@ -1,6 +1,4 @@
 import Card from 'react-bootstrap/Card';
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useEffect, useRef } from 'react';
 
 function Card1(props) {
 
@@ -8,26 +6,9 @@ function Card1(props) {
         return <li key={skill} className='item'>{skill}</li>
     })
 
-    const ref = useRef(null);
-    const isInView = useInView(ref);
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        if (isInView) {
-        mainControls.start("visible")
-        }
-    }, [isInView, mainControls]);
-
     return (
-        <div ref={ref}>
-            <motion.div
-                variants={props.variant}
-                initial="hidden"
-                animate={mainControls}
-                transition={props.transition}
-            >
-                <Card className='skill'>
+        <div>
+                <Card className='skill' id={props.id}>
                 <Card.Body>
                     <Card.Title>
                     <strong>{props.title}</strong> &nbsp;
@@ -40,7 +21,6 @@ function Card1(props) {
                     </Card.Text>
                 </Card.Body>
                 </Card>
-            </motion.div>
         </div>
     )
 }

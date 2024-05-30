@@ -5,133 +5,111 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FaCode } from 'react-icons/fa6';
 import { RiTeamLine } from "react-icons/ri";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useEffect, useRef } from 'react';
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all"
+import gsap from "gsap";
 import Card1 from './Card'
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger)
 
 function About() {
+
+  const scrollRef = useRef();
+
   var data = {
     "soft": ["Teamwork", "Communication", "Self-awareness", "Creativity"],
     "tech": ["Javascript", "HTML", "CSS", "VueJS", "Figma"],
   }
 
-  // var techskills = data.tech.map(function(skill){
-  //   return <li key={skill}>{skill}</li>
-  // })
+  useGSAP(() => {
+    gsap.to('#about', {
+      y: -200,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top bottom', // Adjust based on when you want the animation to start
+        end: 'bottom top', // Adjust based on when you want the animation to end
+        toggleActions: 'play reverse play reverse', // Adjust the actions as needed
+        // markers: true
+      },
+      ease: "power1.inOut",
+    });
 
-  // var softskills = data.soft.map(function(skill){
-  //   return <li key={skill}>{skill}</li>
-  // })
+    gsap.fromTo('#tech', {
+      x: '-100%',
+      opacity: 0
+    }, // initial state
+    {
+      x: '0%',
+      y: -200,
+      opacity: 1,
+      duration: 1.25,
+      scrollTrigger: {
+        trigger: '#tech',
+        start: 'top 90%',
+        // end: 'bottom 50%',
+        toggleActions: 'play reverse play reverse',
+      },
+      ease: "power1.inOut",
+    });
 
-  // const ref = useRef(null);
-  // const isInView = useInView(ref);
+    gsap.fromTo("#soft", {
+      x: "10%",
+      opacity: 0
+    },
+    {
+      x: '0%',
+      opacity: 1,
+      duration: 1.25,
+      scrollTrigger: {
+        trigger: '#tech',
+        start: 'top 70%',
+        // end: 'top 90%',
+        toggleActions: 'play reverse play reverse',
+        // markers: true
+      },
+      ease: "power1.inOut",
+    });
 
-  // const mainControls = useAnimation();
-
-  // useEffect(() => {
-  //   if (isInView) {
-  //     mainControls.start("visible")
-  //   }
-  // }, [isInView]);
+  });
 
     return (
-        <div className="about-content">
-          <Container>
+        <div className="about-content" ref={scrollRef}>
+          <Container className='p-0'>
             <Row>
               <Col>
-                <motion.div
-                  initial={{ opacity: 0, translateY: -50 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  transition={{ duration: 1 }}
-                >
-                  <Card>
+                  <Card id='about'>
                     <Card.Body>
                       <Card.Title>
                         <strong>About Me</strong>
                       </Card.Title>
                       <Card.Text className='intro'>
                         Hello! Welcome to my cozing space where I share projects I have contributed in :)
-                        I am a fresh graduate from <b>Singapore Management University (SMU)</b> with a <b>BSc (Information Systems)</b>. 
+                        I am a fresh graduate from <b>Singapore Management University (SMU)</b> with a <b>BSc (Information Systems)</b>.
                         During my time at SMU, I have worked with VueJS framework, Javascript, HTML and CSS for the front-end development. I am a highly driven individual who enjoys front-end development and I am willing to learn new technologies along the way.
                       </Card.Text>
                     </Card.Body>
                   </Card>
-                </motion.div>
               </Col>
             </Row>
             <Row>
               <Col>
-              {/* <div ref={ref}>
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, translateX: -50, translateY: 50 },
-                    visible: { opacity: 1, translateX: 0, translateY: 0 }
-                  }}
-                  initial="hidden"
-                  animate={mainControls}
-                  transition={{ duration: 1.5, delay: 0.25 }}
-                >
-                  <Card className='skill'>
-                    <Card.Body>
-                      <Card.Title>
-                        <strong>Technical Skills</strong> &nbsp;
-                        <FaCode />
-                      </Card.Title>
-                      <Card.Text>
-                        <ul>
-                          {techskills}
-                        </ul>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-                </div> */}
                 <Card1
+                  id="tech"
                   title="Technical Skills"
                   icon={<FaCode />}
                   list={data.tech}
-                  variant={{
-                    hidden: { opacity: 0, translateX: -50, translateY: 50 },
-                    visible: { opacity: 1, translateX: 0, translateY: 0 }
-                    }}
-                  transition={{ duration: 1.5, delay: 0.25 }}
                 />
               </Col>
               <Col>
-              {/* <div ref={ref}>
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, translateX: 50, translateY: 50 },
-                    visible: { opacity: 1, translateX: 0, translateY: 0 }
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ duration: 2 }}
-                >
-                  <Card className='skill'>
-                    <Card.Body>
-                      <Card.Title>
-                        <strong>Soft Skills</strong> &nbsp;
-                        <RiTeamLine />
-                      </Card.Title>
-                      <Card.Text>
-                        <ul>
-                          {softskills}
-                        </ul>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-                </div> */}
                 <Card1
+                  id="soft"
                   title="Soft Skills"
                   icon={<RiTeamLine />}
                   list={data.soft}
-                  variant={{
-                    hidden: { opacity: 0, translateX: 50, translateY: 50 },
-                    visible: { opacity: 1, translateX: 0, translateY: 0 }
-                    }}
-                  transition={{ duration: 2 }}
                 />
               </Col>
             </Row>

@@ -3,17 +3,17 @@
 }
 
 .card {
-    background-color: rgb(55, 100, 173);
+    background-color: rgb(22, 48, 91);
     padding: 20px;
     border-radius: 30px;
-    color: white;
+    color: #E9F1F7;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-title {
-    font-size: 40px;
+    font-size: 30px;
     text-align: left;
-    color: rgb(234, 144, 59);
+    color: rgb(252, 225, 106);
 }
 
 .card-text {
@@ -46,7 +46,7 @@ li {
 }
 
 .item:hover {
-    background-color: white;
+    background-color: #E9F1F7;
     color: rgb(55, 100, 173);
 }
 

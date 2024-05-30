@@ -45,15 +45,15 @@ function App() {
           </ul>
         </div>
       </div>
-      <div ref={about} className="about-section">
+      <section ref={about} className="about-section">
         <About/>
-      </div>
-      <div ref={project} className="project-section">
+      </section>
+      <section ref={project} className="project-section">
         <Project/>
-      </div>
-      <div ref={work} className="work-section">
+      </section>
+      <section ref={work} className="work-section">
         <Work/>
-      </div>
+      </section>
     </div>
   );
 }

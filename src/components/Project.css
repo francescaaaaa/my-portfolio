@@ -1,5 +1,21 @@
+body {
+    /* margin: 0;
+    height: 100vh; */
+    /* overflow-y: visible; */
+	overflow-x: hidden;
+}
+
+.sub {
+    font-size: small;
+    font-style: italic;
+}
+
 .projcard {
     margin: 20px;
+}
+
+.project {
+    background-color: rgb(163, 206, 239);
 }
 
 header {
@@ -17,25 +33,68 @@ header h1 {
     margin: 0 auto; /* Center the element horizontally */
 }
 
-.row {
-    margin: 10px;
-}
-
 p {
     margin-top: 20px;
 }
 
 .figmalink {
-    color: white;
+    margin-top: 20px;
 }
 
 .figmalink:hover {
-    color: rgb(238, 177, 116);
+    color: rgb(96, 112, 160);
     text-decoration: none;
 }
 
 .card {
     height: 100%;
+}
+
+#container {
+    display: flex;
+    width: 400%;
+    height: 100vh;
+    flex-wrap: nowrap;
+    /* overflow-x: hidden; */
+  }
+
+  #container section {
+    flex: 1 0 100vw;
+  align-items: center;
+  }
+
+  .pin {
+    flex: none;
+}
+
+.proj {
+    padding: 100px;
+}
+
+.skill {
+    margin: 5px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#container section:nth-child(1) {
+    background-repeat: no-repeat;
+    background-color: rgb(163, 206, 239);
+}
+
+#container section:nth-child(2) {
+    background-repeat: no-repeat;
+    background-color: rgb(255, 255, 255);
+}
+
+#container section:nth-child(3) {
+    background-repeat: no-repeat;
+    background-color: rgba(140, 170, 212, 0.864);
+}
+
+#container section:nth-child(4) {
+    background-repeat: no-repeat;
+    background-color: rgb(255, 255, 255);
 }
 
 @keyframes cursor{
