@@ -5,15 +5,6 @@ body {
 	overflow-x: hidden;
 }
 
-.sub {
-    font-size: small;
-    font-style: italic;
-}
-
-.projcard {
-    margin: 20px;
-}
-
 .project {
     background-color: rgb(163, 206, 239);
 }
@@ -33,6 +24,11 @@ header h1 {
     margin: 0 auto; /* Center the element horizontally */
 }
 
+.sub {
+    font-size: small;
+    font-style: italic;
+}
+
 p {
     margin-top: 20px;
 }
@@ -46,24 +42,20 @@ p {
     text-decoration: none;
 }
 
-.card {
-    height: 100%;
-}
-
 #container {
     display: flex;
     width: 400%;
     height: 100vh;
     flex-wrap: nowrap;
     /* overflow-x: hidden; */
-  }
+}
 
-  #container section {
+#container section {
     flex: 1 0 100vw;
-  align-items: center;
-  }
+    align-items: center;
+}
 
-  .pin {
+.pin {
     flex: none;
 }
 
@@ -97,7 +89,53 @@ p {
     background-color: rgb(255, 255, 255);
 }
 
+.projimg {
+    width: 80%;
+}
+
+.projvid {
+    width: 70%;
+    height: 500px;
+}
+
+
 @keyframes cursor{
     0%, 100%{border-color: transparent;}
     50%{border-color: #000;}
   }
+
+@media only screen and (max-width: 768px) {
+    body {
+        overflow-x: visible;
+    }
+
+    header h1 {
+        font-size: 30px;
+        width: 200px;
+    }
+
+    #container {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    #container section {
+        /* flex: 1 0 100vw; */
+        align-items: center;
+        height: 100vh;
+    }
+
+    .proj {
+        padding: 10px;
+    }
+
+    .projimg {
+        width: 90%;
+    }
+
+    .projvid {
+        width: 80%;
+        height: 300px;
+    }
+}

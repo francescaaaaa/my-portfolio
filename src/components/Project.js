@@ -13,26 +13,11 @@ import projectWorks from '../assets/projectsDetails';
 function Project() {
 
   const header = useTypingEffect("Past Projects", 100);
+  const isMobile = matchMedia("(max-width: 768px").matches;
 
   useLayoutEffect(() => {
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.fromTo("#header", {
-      x: "-100%",
-      opacity: 0
-    },
-    {
-      x: '0%',
-      opacity: 1,
-      duration: 1,
-      scrollTrigger: {
-        trigger: '#header',
-        start: 'top 90%',
-        toggleActions: 'play reverse play reverse',
-      },
-      ease: "power3.inOut",
-    });
+    if (!isMobile) {
 
 		const ctx = gsap.context(() => {
 			// ---------- selecting all horizontal sections
@@ -56,7 +41,8 @@ function Project() {
 		});
 
 		return () => ctx.revert();
-	}, []);
+    }
+	}, [isMobile]);
 
 
   return (
@@ -64,58 +50,58 @@ function Project() {
       <header id='header'>
           <h1>{header}</h1>
       </header>
-    <main id='container'>
-      {projectWorks.map((proj) => {
-        return (
-          <section className="pin">
-            <div className='proj'>
-            <h1>{proj.title} <span className='sub'>{proj.subtitle}</span></h1>
-            {proj.skills.map((skill) => {
-              return (
-                <span class="badge rounded-pill bg-light text-dark skill">{skill}</span>
-              )
-            })}
-            <p>{proj.desc}</p>
-            { proj.links["Demo"] ?
-              (<iframe
-                width="600"
-                height="400"
-                src= {proj.links["Demo"]}
-                title="YouTube video"
-                frameborder="0"
-                allow="accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share" allowfullscreen>
-              </iframe>) :
-              (<img src={require(`../${proj.image}`)} alt="img"
-                style={{ width: '850px', height: '400px' }}
-              />)
-            }
-            { "Game" in proj.links &&
-              <div>
-                Try Me ~
-                <a href='https://memorygame4u.netlify.app/'>
-                  <FaGamepad size={50} color='black'/>
-                </a>
+      <main id='container'>
+        {projectWorks.map((proj) => {
+          return (
+            <section className="pin">
+              <div className='proj'>
+              <h1>{proj.title} <span className='sub'>{proj.subtitle}</span></h1>
+              {proj.skills.map((skill) => {
+                return (
+                  <span class="badge rounded-pill bg-light text-dark skill">{skill}</span>
+                )
+              })}
+              <p>{proj.desc}</p>
+              { proj.links["Demo"] ?
+                (<iframe
+                  // width="600"
+                  // height="400"
+                  className='projvid'
+                  src= {proj.links["Demo"]}
+                  title="YouTube video"
+                  frameborder="0"
+                  allow="accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share" allowfullscreen>
+                </iframe>) :
+                (<img src={require(`../${proj.image}`)} alt="img" className='projimg'
+                />)
+              }
+              { "Game" in proj.links &&
+                <div className='figmalink'>
+                  Try Me
+                  <a href='https://memorygame4u.netlify.app/'>
+                    <FaGamepad size={50} color='black'/>
+                  </a>
+                </div>
+              }
+              { "Prototype" in proj.links &&
+                <div className='figmalink'>
+                  <a href={proj.links["Prototype"]}>
+                    <FaFigma size={20} color='black'/>
+                  </a>
+                  Click here to view prototype
+                </div>
+              }
               </div>
-            }
-            { "Prototype" in proj.links &&
-              <div className='figmalink'>
-                <a href={proj.links["Prototype"]}>
-                  <FaFigma size={20} color='black'/>
-                </a>
-                Click here to view prototype
-              </div>
-            }
-            </div>
-          </section>
-        )
-      })}
-    </main>
+            </section>
+          )
+        })}
+      </main>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all"
 import gsap from "gsap";
 import Card1 from './Card'
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -24,7 +24,12 @@ function About() {
     "tech": ["Javascript", "HTML", "CSS", "VueJS", "Figma"],
   }
 
-  useGSAP(() => {
+  const isMobile = matchMedia("(max-width: 768px").matches;
+
+  useEffect(() => {
+
+    if (!isMobile) {
+  // useGSAP(() => {
     gsap.to('#about', {
       y: -200,
       duration: 1,
@@ -73,8 +78,10 @@ function About() {
       },
       ease: "power1.inOut",
     });
+  }
 
-  });
+  }, [isMobile]);
+  // });
 
     return (
         <div className="about-content" ref={scrollRef}>
